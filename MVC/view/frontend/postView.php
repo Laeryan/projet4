@@ -1,6 +1,7 @@
 <?php $title = 'Mon blog'; ?>
-
+    
     <?php ob_start(); ?>
+    <?= include('PostManager.php') ?>
         <h1>Mon super blog !</h1>
         <p><a href="index.php">Retour à la liste des billets</a></p>
     
