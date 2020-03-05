@@ -24,10 +24,16 @@ try {
             }
         } elseif ($_GET['action'] == 'displayPostForm') {
             displayPostForm();
+        } elseif ($_GET['action'] == 'postView') {
+            postView();
+        } elseif ($_GET['action'] == 'updatePost') {
+            echo 'à renseigner';
+        } elseif ($_GET['action'] == 'deletePost') {
+            echo 'à renseigner';
         }
     } else {
         listPosts();
-    }
+    } 
 } catch(Exception $e) {
     $errorMessage = $e->getMessage();
     require('view/errorView.php');

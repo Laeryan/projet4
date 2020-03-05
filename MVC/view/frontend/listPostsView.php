@@ -21,7 +21,7 @@
 
             <?= nl2br(htmlspecialchars($data['content']));
             ?><br />
-            <em><a href="view/frontend/postView.php">Voir le billet</a></em>
+            <em><a href="index.php?action=postView&id=<?= $data['id']?>">Voir le billet</a></em>
             </p>
         </div>
 <?php

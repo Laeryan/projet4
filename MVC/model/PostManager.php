@@ -27,4 +27,12 @@ class PostManager extends Manager
 
         return $post;
     }
+
+    public function updatePost() {
+
+    }
+
+    public function deletePost() {
+        
+    }
 }

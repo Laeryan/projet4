@@ -25,20 +25,20 @@ class CommentManager extends Manager
     }
 
     // fonction pour modifier un commentaire
-    public function editComment($newComment)
+    public function editComment($newComment, $postId)
     {
         $db = $this->dbconnect();
-        $editedComment = $db->prepare('UPDATE comments SET comment');
-        $affectedComment = $editedComment->execute(array($newComment));
+        $editedComment = $db->prepare('UPDATE comments SET comment = ? WHERE id = ?');
+        $affectedComment = $editedComment->execute(array($newComment, $postId));
 
         return $affectedComment;
     }
 
     // fonction pour supprimer un commentaire
- /*   public function deleteComment($id)
+    public function deleteComment($postId)
     {
        $db = $this->dbconnect();
-       $deletedComment = $db->prepare('DELETE from comments WHERE id = '$id')
-       $
-    } */
+       $deletedComment = $db->prepare('DELETE from comments WHERE id = ?');
+       $deletedComment->execute(array($postId));      
+    }
 }
