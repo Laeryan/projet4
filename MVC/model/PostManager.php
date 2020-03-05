@@ -4,6 +4,7 @@ require_once('model/Manager.php');
 
 class PostManager extends Manager
 {
+    // affiche les 5 derniers billets sur la page d'accueil
     public function getPosts()
     {
         $db = $this->dbConnect();
@@ -14,6 +15,7 @@ class PostManager extends Manager
         return $req;
     }
 
+    // affiche 1 billet par page 
     public function getPost($postId)
     {
         $db = $this->dbConnect();

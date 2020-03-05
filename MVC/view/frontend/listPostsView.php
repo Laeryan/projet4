@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-        <h1>Mon super blog !</h1>
+        <h1>Jean Forteroche - Ecrivain</h1>
         <p>Derniers billets du blog :</p>
  
         
@@ -21,7 +21,7 @@
 
             <?= nl2br(htmlspecialchars($data['content']));
             ?><br />
-            <em><a href="#">Commentaires</a></em>
+            <em><a href="view/frontend/postView.php">Voir le billet</a></em>
             </p>
         </div>
 <?php

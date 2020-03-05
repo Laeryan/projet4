@@ -21,7 +21,7 @@ function getPost($postId) {
 	$db = dbConnect();
 	$req = $db->prepare('SELECT id, title, content,
 	DATE_FORMAT(creation_date, \'%d/%m/%y à %Hh%imin%ss\') AS creation_date_fr 
-	FROM posts WHER id = ?');
+	FROM posts WHERE id = ?');
 	$req->ececute(array($postID));
 	$post = $req->fetch();
 

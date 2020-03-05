@@ -4,6 +4,7 @@ require_once('model/Manager.php');
 
 class CommentManager extends Manager
 {
+    // accède à la bdd pour récupérer les commentaires
     public function getComments($postId)
     {
         $db = $this->dbConnect();
@@ -13,6 +14,7 @@ class CommentManager extends Manager
         return $comments;
     }
 
+    // permet de poster un commentaire
     public function postComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
@@ -21,4 +23,21 @@ class CommentManager extends Manager
 
         return $affectedLines;
     }
+
+    // fonction pour modifier un commentaire
+    public function editComment($newComment)
+    {
+        $db = $this->dbconnect();
+        $editedComment = $db->prepare('UPDATE comments');
+        $affectedComment = $editedComment->execute(array($newComment));
+
+        return $affectedComment;
+    }
+
+    // fonction pour supprimer un commentaire
+ /*   public function deleteComment() 
+    {
+       $db = $this->dbconnect();
+       $deletedComment = $db->
+    } */
 }
