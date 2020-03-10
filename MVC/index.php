@@ -22,6 +22,10 @@ try {
             } else {
                 throw new Exception('Erreur : aucun identifiant de billet envoyé.');
             }
+        } elseif ($_GET['action'] == 'deleteComment') {
+            deleteComment($_GET['id']);
+        } elseif ($_GET['action'] == 'editComment') {
+            editComment($_GET['id']);
         } elseif ($_GET['action'] == 'displayPostForm') {
             displayPostForm();
         } elseif ($_GET['action'] == 'postView') {
@@ -38,4 +42,3 @@ try {
     $errorMessage = $e->getMessage();
     require('view/errorView.php');
 }
-

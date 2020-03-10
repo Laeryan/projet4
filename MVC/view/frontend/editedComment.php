@@ -2,7 +2,7 @@
 
     <?php ob_start(); ?>
 
-    <form action="index.php?action=editComment&amp;id=         " method="post">
+    <form action="index.php?action=editComment&amp;id=" method="post">
             <div>
                 <label for="author">Auteur</label><br />
                 <input type="text" name="author" id="author" value="<?=htmlspecialchars($comment['author']);?>">

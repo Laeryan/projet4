@@ -7,23 +7,29 @@
  
         
         <?php
-        while ($data = $posts->fetch())
+        while ($post = $posts->fetch())
         {
         ?>
 
         <div class="news">
             <h3>
-                <?= htmlspecialchars($data['title']); ?> <!-- = < ?php echo naninaninani ?> -->
-                <em>le <?= $data['creation_date_fr']; ?></em>
+                <?= htmlspecialchars($post['title']); ?> <!-- = < ?php echo naninaninani ?> -->
+                <em>le <?= $post['creation_date_fr']; ?></em>
             </h3>
             
             <p>
 
-            <?= nl2br(htmlspecialchars($data['content']));
+            <?= nl2br(htmlspecialchars($post['content']));
             ?><br />
-            <em><a href="index.php?action=postView&id=<?= $data['id']?>">Voir le billet</a></em>
+            <em><a href="index.php?action=postView&id=<?= $post['id']?>">Voir le billet</a></em>
             </p>
         </div>
+        <form action="index.php?action=deletePost&amp;id=<?= htmlspecialchars($post['id'])?>" method="post">
+        <input type="submit" value="Effacer"/>
+        </form>
+        <form action="index.php?action=updatePost&amp;id=<?= htmlspecialchars($post['id'])?>" method="post">
+        <input type="submit" value="Modifier"/>
+        </form>
 <?php
         }
 $posts->closeCursor();

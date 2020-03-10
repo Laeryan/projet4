@@ -32,4 +32,26 @@ function addComment($postId, $author, $comment) {
     }
 }
 
+function deleteComment($commentId) {
+    $commentManager = new CommentManager();
 
+    $affectedComment = $commentManager->deleteComment($commentId);
+    
+    if ($affectedComment === false) {
+        throw new Exception('Impossible d\'effacer le commentaire.');
+    } else {
+        header('Location:index.php?action=postView&id=' . $postId);
+    }
+}
+
+function editComment($commentId) {
+    $commentManager = new CommentManager();
+
+    $affectedComment = $commentManager->editComment($newComment, $commentId);
+
+    if ($affectedComment === false) {
+        throw new Exception('Impossible de modifier le commentaire.');
+    } else {
+        header('Location:index.php?action=postView&id=' . $postId);
+    }
+}

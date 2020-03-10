@@ -2,7 +2,7 @@
     
     <?php ob_start(); ?>
         <h1>Billet simple pour l'Alaska</h1>
-        <p><a href="../../index.php">Retour à la liste des billets</a></p>
+        <p><a href="index.php?action=listPosts">Retour à la liste des billets</a></p>
     
         <div class="news">
             <h3>
@@ -37,6 +37,12 @@
         ?>
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
             <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+        <form action="index.php?action=deleteComment&amp;id=<?= htmlspecialchars($comment['id'])?>" method="post">
+        <input type="submit" value="Effacer"/>
+        </form>
+        <form action="index.php?action=editComment&amp;id=<?= htmlspecialchars($comment['id'])?>" method="post">
+        <input type="submit" value="Modifier"/>
+        </form>
         <?php
         }
         ?>
