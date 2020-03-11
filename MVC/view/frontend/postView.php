@@ -40,8 +40,11 @@
         <form action="index.php?action=deleteComment&amp;id=<?= htmlspecialchars($comment['id'])?>" method="post">
         <input type="submit" value="Effacer"/>
         </form>
-        <form action="index.php?action=editComment&amp;id=<?= htmlspecialchars($comment['id'])?>" method="post">
+        <form action="index.php?action=updateComment&amp;id=<?= htmlspecialchars($comment['id'])?>" method="post">
         <input type="submit" value="Modifier"/>
+        </form>
+        <form action="index.php?action=reportComment&amp;id=<?= htmlspecialchars($comment['id'])?>" method="post">
+        <input type="submit" value="Signaler"/>
         </form>
         <?php
         }

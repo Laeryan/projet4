@@ -24,8 +24,10 @@ try {
             }
         } elseif ($_GET['action'] == 'deleteComment') {
             deleteComment($_GET['id']);
-        } elseif ($_GET['action'] == 'editComment') {
-            editComment($_GET['id']);
+        } elseif ($_GET['action'] == 'updateComment') {
+            updateComment($_POST['comment'], $_GET['id'], $_GET['postID']);
+        } elseif ($_GET['action'] == 'reportComment') {
+            reportComment($_GET['id']);
         } elseif ($_GET['action'] == 'displayPostForm') {
             displayPostForm();
         } elseif ($_GET['action'] == 'postView') {
