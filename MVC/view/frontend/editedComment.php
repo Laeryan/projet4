@@ -7,7 +7,7 @@
  
 <h2>Editer le commentaire</h2>
  
-<form action="index.php?action=addComment&amp;id=<?= htmlspecialchars($post['id']) ?>" method="post">
+<form action="index.php?action=updateComment&amp;id=<?= htmlspecialchars($post['id']) ?>" method="post">
         <label for="newComment">Nouveau commentaire</label><br />
         <textarea id="newComment" name="newComment" value = ""></textarea>
     </div>

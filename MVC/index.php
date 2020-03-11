@@ -24,18 +24,18 @@ try {
             }
         } elseif ($_GET['action'] == 'deleteComment') {
             deleteComment($_GET['id']);
-        } elseif ($_GET['action'] == 'updateComment') {
-            updateComment($_POST['comment'], $_GET['id'], $_GET['postID']);
+        } /* elseif ($_GET['action'] == 'updateComment') {
+            updateComment($_POST['newComment'], $_GET['id'], $_GET['postID']);
         } elseif ($_GET['action'] == 'reportComment') {
-            reportComment($_GET['id']);
-        } elseif ($_GET['action'] == 'displayPostForm') {
+            reportComment($_GET['id']); 
+        } */ elseif ($_GET['action'] == 'displayPostForm') {
             displayPostForm();
         } elseif ($_GET['action'] == 'postView') {
             postView();
         } elseif ($_GET['action'] == 'updatePost') {
             echo 'à renseigner';
         } elseif ($_GET['action'] == 'deletePost') {
-            echo 'à renseigner';
+            deletePost($_GET['id']);
         }
     } else {
         listPosts();

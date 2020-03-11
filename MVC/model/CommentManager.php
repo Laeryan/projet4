@@ -23,7 +23,7 @@ class CommentManager extends Manager
 
         return $affectedLines;
     }
-
+/*
     // fonction pour modifier un commentaire
     public function updateComment($newComment, $commentId)
     {
@@ -31,9 +31,9 @@ class CommentManager extends Manager
         $editedComment = $db->prepare('UPDATE comments SET comment = ? WHERE id = ?');
         $editedComment->execute(array($newComment, $commentId));
 
-        return $affectedComment;
+        return $editedComment;
     }
-
+*/
     // fonction pour supprimer un commentaire
     public function deleteComment($postId)
     {
@@ -43,14 +43,14 @@ class CommentManager extends Manager
        
        return $deletedComment;
     }
-
+/*
     // fonction pour signaler un commentaire
-    public function reportComment($commentId, $author, $comment, $commentDate)
+    public function reportComment($commentId)
     {
         $db = $this->dbConnect();
-        $reportedComment = $db->prepare('SELECT id, author, comment, comment_date FROM comments WHERE post_id = ?');
-        $reportedComment->execute(array($commentId, $author, $comment, $commentDate));
+        $reportedComment = $db->prepare('UPDATE comments SET report = 1 WHERE post_id = ?');
+        $reportedComment->execute(array($commentId));
 
         return ('Le commentaire a bien été signalé.');
-    }
+    } */
 }

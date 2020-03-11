@@ -43,7 +43,7 @@ function deleteComment($commentId) {
         header('Location:index.php?action=postView&id=' . $postId);
     }
 }
-
+/*
 function updateComment($newComment, $commentId, $postId) {
     $commentManager = new CommentManager();
 
@@ -56,14 +56,28 @@ function updateComment($newComment, $commentId, $postId) {
     }
 }
 
-function reportComment($postId, $author, $comment, $postDate) {
+function reportComment($commentId) {
     $commentManager = new CommentManager();
 
-    $reportedComment = $commentManager->reportComment($commentId, $author, $comment, $commentDate);
+    $reportedComment = $commentManager->reportComment($commentId);
 
     if ($reportedComment === false) {
         throw new Exception('Impossible de signaler le commentaire.');
     } else {
-        header('Location:index.php?action=postView&id=' . $postId);
+        header('Location:index.php?action=listPosts');
+    }
+}
+*/
+function deletePost($postId) {
+    $postManager = new PostManager();
+
+    $deletedPost = $postManager->deletePost($postId);
+
+    $reportedComment = $postManager->deletePost($commentId);
+
+    if ($deletedPost === false) {
+        throw new Exception('Impossible de supprimer le billet.');
+    } else {
+        header('Location:index.php?action=listPosts');
     }
 }

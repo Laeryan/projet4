@@ -27,12 +27,22 @@ class PostManager extends Manager
 
         return $post;
     }
-
+/*  
+    // fonction pour modifier un billet
     public function updatePost() {
 
     }
+*/
+    // fonction pour supprimer un billet
+    public function deletePost($postId)
+     {
+        $db = $this->dbconnect();
+        $deletedPost = $db->prepare('DELETE from posts WHERE id = ?');
+        $deletedComments = $db->prepare('DELETE from comments WHERE post_id = ?');
+        $deletedComments->execute(array($postId));
+        $deletedPost->execute(array($postId));
 
-    public function deletePost() {
         
-    }
+        return $deletedPost;
+     }
 }
