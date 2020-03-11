@@ -2,6 +2,8 @@
 require('controller/frontend.php');
 require('controller/backend.php');
 
+//var_dump($_POST);
+
 try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
@@ -23,12 +25,12 @@ try {
                 throw new Exception('Erreur : aucun identifiant de billet envoyé.');
             }
         } elseif ($_GET['action'] == 'deleteComment') {
-            deleteComment($_GET['id']);
-        } /* elseif ($_GET['action'] == 'updateComment') {
+            deleteComment($_GET['id'], $_GET['postId']);
+        }  elseif ($_GET['action'] == 'updateComment') {
             updateComment($_POST['newComment'], $_GET['id'], $_GET['postID']);
         } elseif ($_GET['action'] == 'reportComment') {
-            reportComment($_GET['id']); 
-        } */ elseif ($_GET['action'] == 'displayPostForm') {
+            reportComment($_GET['id'], $_GET['postId']); 
+        }  elseif ($_GET['action'] == 'displayPostForm') {
             displayPostForm();
         } elseif ($_GET['action'] == 'postView') {
             postView();

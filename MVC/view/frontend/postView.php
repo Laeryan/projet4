@@ -37,15 +37,17 @@
         ?>
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
             <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-        <form action="index.php?action=deleteComment&amp;id=<?= htmlspecialchars($comment['id'])?>" method="post">
+        <form action="index.php?action=deleteComment&amp;id=<?= htmlspecialchars($comment['id']).'&postId='.htmlspecialchars($post['id'])?>" method="post">
         <input type="submit" value="Effacer"/>
         </form>
-        <form action="index.php?action=updateComment&amp;id=<?= htmlspecialchars($comment['id'])?>" method="post">
+        <form action="index.php?action=updateComment&amp;id=<?= htmlspecialchars($comment['id']).'&postId='.htmlspecialchars($post['id'])?>" method="post">
         <input type="submit" value="Modifier"/>
         </form>
-        <form action="index.php?action=reportComment&amp;id=<?= htmlspecialchars($comment['id'])?>" method="post">
+        <?php if($comment['report'] == 0) : ?>
+        <form action="index.php?action=reportComment&amp;id=<?= htmlspecialchars($comment['id']).'&postId='.htmlspecialchars($post['id'])?>" method="post">
         <input type="submit" value="Signaler"/>
         </form>
+        <?php endif; ?>
         <?php
         }
         ?>

@@ -23,16 +23,16 @@ function postView() {
 function addComment($postId, $author, $comment) {
     $commentManager = new CommentManager();
 
-    $affectedLines = $commentManager->postComment($postId, $author, $comment);
+    $affectedLines = $commentManager->addComment($postId, $author, $comment);
     
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire.');
     } else {
-        header('Location:index.php?action=postView&id=' . $postId);
+        header('Location:index.php?action=postView&id='. $postId);
     }
 }
 
-function deleteComment($commentId) {
+function deleteComment($commentId, $postId) {
     $commentManager = new CommentManager();
 
     $affectedComment = $commentManager->deleteComment($commentId);
@@ -43,7 +43,7 @@ function deleteComment($commentId) {
         header('Location:index.php?action=postView&id=' . $postId);
     }
 }
-/*
+
 function updateComment($newComment, $commentId, $postId) {
     $commentManager = new CommentManager();
 
@@ -56,7 +56,7 @@ function updateComment($newComment, $commentId, $postId) {
     }
 }
 
-function reportComment($commentId) {
+function reportComment($commentId, $postId) {
     $commentManager = new CommentManager();
 
     $reportedComment = $commentManager->reportComment($commentId);
@@ -64,10 +64,10 @@ function reportComment($commentId) {
     if ($reportedComment === false) {
         throw new Exception('Impossible de signaler le commentaire.');
     } else {
-        header('Location:index.php?action=listPosts');
+        header('Location:index.php?action=postView&id=' .$postId);
     }
 }
-*/
+
 function deletePost($postId) {
     $postManager = new PostManager();
 

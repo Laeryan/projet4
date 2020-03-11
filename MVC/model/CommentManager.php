@@ -8,14 +8,14 @@ class CommentManager extends Manager
     public function getComments($postId)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $comments = $db->prepare('SELECT id, author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
         $comments->execute(array($postId));
 
         return $comments;
     }
 
-    // permet de poster un commentaire
-    public function postComment($postId, $author, $comment)
+    // permet de créer un commentaire
+    public function addComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
         $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
@@ -23,7 +23,7 @@ class CommentManager extends Manager
 
         return $affectedLines;
     }
-/*
+
     // fonction pour modifier un commentaire
     public function updateComment($newComment, $commentId)
     {
@@ -33,24 +33,24 @@ class CommentManager extends Manager
 
         return $editedComment;
     }
-*/
+
     // fonction pour supprimer un commentaire
-    public function deleteComment($postId)
+    public function deleteComment($commentId)
     {
        $db = $this->dbconnect();
        $deletedComment = $db->prepare('DELETE from comments WHERE id = ?');
-       $deletedComment->execute(array($postId));
+       $deletedComment->execute(array($commentId));
        
        return $deletedComment;
     }
-/*
+
     // fonction pour signaler un commentaire
     public function reportComment($commentId)
     {
         $db = $this->dbConnect();
-        $reportedComment = $db->prepare('UPDATE comments SET report = 1 WHERE post_id = ?');
+        $reportedComment = $db->prepare('UPDATE comments SET report = 1 WHERE id = ?');
         $reportedComment->execute(array($commentId));
 
         return ('Le commentaire a bien été signalé.');
-    } */
+    } 
 }
