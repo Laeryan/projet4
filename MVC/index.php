@@ -26,12 +26,12 @@ try {
             }
         } elseif ($_GET['action'] == 'deleteComment') {
             deleteComment($_GET['id'], $_GET['postId']);
-        }  elseif ($_GET['action'] == 'updateComment') {
-            updateComment($_POST['newComment'], $_GET['id'], $_GET['postID']);
-        } elseif ($_GET['action'] == 'reportComment') {
+        }  elseif ($_GET['action'] == 'reportComment') {
             reportComment($_GET['id'], $_GET['postId']); 
         }  elseif ($_GET['action'] == 'displayPostForm') {
             displayPostForm();
+        } elseif ($_GET['action'] == 'createPost') {
+            createPost();
         } elseif ($_GET['action'] == 'postView') {
             postView();
         } elseif ($_GET['action'] == 'updatePost') {

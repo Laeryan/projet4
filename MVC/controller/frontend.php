@@ -44,18 +44,6 @@ function deleteComment($commentId, $postId) {
     }
 }
 
-function updateComment($newComment, $commentId, $postId) {
-    $commentManager = new CommentManager();
-
-    $affectedComment = $commentManager->updateComment($newComment, $commentId);
-
-    if ($affectedComment === false) {
-        throw new Exception('Impossible de modifier le commentaire.');
-    } else {
-        header('Location:index.php?action=postView&id=' . $postId);
-    }
-}
-
 function reportComment($commentId, $postId) {
     $commentManager = new CommentManager();
 

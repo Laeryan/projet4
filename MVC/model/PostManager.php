@@ -30,7 +30,7 @@ class PostManager extends Manager
 /*  
     // fonction pour modifier un billet
     public function updatePost() {
-
+        // reçoit un ID
     }
 */
     // fonction pour supprimer un billet

@@ -24,16 +24,6 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
-    // fonction pour modifier un commentaire
-    public function updateComment($newComment, $commentId)
-    {
-        $db = $this->dbconnect();
-        $editedComment = $db->prepare('UPDATE comments SET comment = ? WHERE id = ?');
-        $editedComment->execute(array($newComment, $commentId));
-
-        return $editedComment;
-    }
-
     // fonction pour supprimer un commentaire
     public function deleteComment($commentId)
     {
