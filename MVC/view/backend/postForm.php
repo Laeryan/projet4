@@ -3,8 +3,8 @@
 <?php ob_start(); ?>
 
 <form action="index.php?action=<?= $action ?>" method="POST">
-<input type="text" value="<?= $postTitle ?>"/> 
-<textarea><?= $postContent ?></textarea>
+<input type="text" placeholder="<?= $postTitle ?>"/> 
+<textarea placeholder=''><?= $postContent ?></textarea>
 <input type="submit" value="Enregistrer"/>
 </form>
 

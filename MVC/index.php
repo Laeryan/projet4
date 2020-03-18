@@ -2,21 +2,19 @@
 require('controller/frontend.php');
 require('controller/backend.php');
 
-//var_dump($_POST);
-
 try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
-                listPosts();
-        } elseif ($_GET['action'] == 'post') {
-                if (isset($_GET['id']) && $_GET['id'] > 0) {
-                    post();
-                } else {
-                    throw new Exception('Erreur : aucun identifiant de billet envoyé.');
-                }
+            listPosts();
+        } elseif ($_GET['action'] == 'postView') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                postView();
+            } else {
+                throw new Exception('Erreur : aucun identifiant de billet envoyé.');
+            }
         } elseif ($_GET['action'] == 'addComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0 ) {
-                if(!empty($_POST['author']) && !empty($_POST['comment'])) {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 } else {
                     throw new Exception('Erreur : tous les champs ne sont pas remplis !');
@@ -26,23 +24,21 @@ try {
             }
         } elseif ($_GET['action'] == 'deleteComment') {
             deleteComment($_GET['id'], $_GET['postId']);
-        }  elseif ($_GET['action'] == 'reportComment') {
-            reportComment($_GET['id'], $_GET['postId']); 
-        }  elseif ($_GET['action'] == 'displayPostForm') {
+        } elseif ($_GET['action'] == 'reportComment') {
+            reportComment($_GET['id'], $_GET['postId']);
+        } elseif ($_GET['action'] == 'displayPostForm') {
             displayPostForm();
         } elseif ($_GET['action'] == 'createPost') {
             createPost();
-        } elseif ($_GET['action'] == 'postView') {
-            postView();
         } elseif ($_GET['action'] == 'updatePost') {
-            echo 'à renseigner';
+            updatePost($_GET['id'], $_GET['content'], $_GET['creation_date']);
         } elseif ($_GET['action'] == 'deletePost') {
             deletePost($_GET['id']);
         }
     } else {
         listPosts();
-    } 
-} catch(Exception $e) {
+    }
+} catch (Exception $e) {
     $errorMessage = $e->getMessage();
     require('view/errorView.php');
 }

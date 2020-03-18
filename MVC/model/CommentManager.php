@@ -29,9 +29,9 @@ class CommentManager extends Manager
     {
        $db = $this->dbconnect();
        $deletedComment = $db->prepare('DELETE from comments WHERE id = ?');
-       $deletedComment->execute(array($commentId));
+       $affectedLines = $deletedComment->execute(array($commentId));
        
-       return $deletedComment;
+       return $affectedLines;
     }
 
     // fonction pour signaler un commentaire

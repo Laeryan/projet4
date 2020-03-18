@@ -28,7 +28,7 @@ function addComment($postId, $author, $comment) {
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire.');
     } else {
-        header('Location:index.php?action=postView&id='. $postId);
+        header('location:index.php?action=postView&id='. $postId);
     }
 }
 
@@ -40,7 +40,7 @@ function deleteComment($commentId, $postId) {
     if ($affectedComment === false) {
         throw new Exception('Impossible d\'effacer le commentaire.');
     } else {
-        header('Location:index.php?action=postView&id=' . $postId);
+        header('location:index.php?action=postView&id=' . $postId);
     }
 }
 
@@ -52,20 +52,7 @@ function reportComment($commentId, $postId) {
     if ($reportedComment === false) {
         throw new Exception('Impossible de signaler le commentaire.');
     } else {
-        header('Location:index.php?action=postView&id=' .$postId);
+        header('location:index.php?action=postView&id=' .$postId);
     }
 }
 
-function deletePost($postId) {
-    $postManager = new PostManager();
-
-    $deletedPost = $postManager->deletePost($postId);
-
-    $reportedComment = $postManager->deletePost($commentId);
-
-    if ($deletedPost === false) {
-        throw new Exception('Impossible de supprimer le billet.');
-    } else {
-        header('Location:index.php?action=listPosts');
-    }
-}

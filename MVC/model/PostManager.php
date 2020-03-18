@@ -27,12 +27,15 @@ class PostManager extends Manager
 
         return $post;
     }
-/*  
-    // fonction pour modifier un billet
-    public function updatePost() {
-        // reçoit un ID
+
+    public function updatePost($title, $content, $date) {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE posts SET title = ?, content = ?, creation_date = NOW() WHERE id = ?');
+        $affectedLines = $req->execute(array($title, $content, $date));
+
+        return $affectedLines;
     }
-*/
+
     // fonction pour supprimer un billet
     public function deletePost($postId)
      {
@@ -40,9 +43,8 @@ class PostManager extends Manager
         $deletedPost = $db->prepare('DELETE from posts WHERE id = ?');
         $deletedComments = $db->prepare('DELETE from comments WHERE post_id = ?');
         $deletedComments->execute(array($postId));
-        $deletedPost->execute(array($postId));
-
+        $affectedLines = $deletedPost->execute(array($postId));
         
-        return $deletedPost;
+        return $affectedLines;
      }
 }
