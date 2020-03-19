@@ -2,11 +2,15 @@
 
 <?php ob_start(); ?>
 
-<form action="index.php?action=<?= $action ?>" method="POST">
-<input type="text" placeholder="<?= $postTitle ?>"/> 
-<textarea placeholder=''><?= $postContent ?></textarea>
-<input type="submit" value="Enregistrer"/>
+<h2>Créez un nouveau billet</h2>
+
+<form action="index.php?action=<?= $action ?>" method="post">
+    <input type="text" name="title" placeholder="Saisissez votre titre." value="<?= htmlspecialchars($postTitle)?>"/>
+    <textarea name="content" placeholder="Saisissez votre texte."><?= htmlspecialchars($postContent)?></textarea>
+    <input type="submit" value="Enregistrer" />
 </form>
+
+<p><a href="index.php?action=listPosts">Retour à la liste des billets</a></p>
 
 <?php $content = ob_get_clean(); ?>
 

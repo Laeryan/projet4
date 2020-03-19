@@ -16,8 +16,8 @@ class PostManager extends Manager
     }
 
     // affiche 1 billet par page 
-    public function getPost($postId)
-    {
+    public function getPost($postId) {
+
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id, title, content,
         DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr
@@ -28,7 +28,9 @@ class PostManager extends Manager
         return $post;
     }
 
+    // fonction pour mettre à jour un billet
     public function updatePost($title, $content, $date) {
+
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE posts SET title = ?, content = ?, creation_date = NOW() WHERE id = ?');
         $affectedLines = $req->execute(array($title, $content, $date));
@@ -37,8 +39,8 @@ class PostManager extends Manager
     }
 
     // fonction pour supprimer un billet
-    public function deletePost($postId)
-     {
+    public function deletePost($postId){
+
         $db = $this->dbconnect();
         $deletedPost = $db->prepare('DELETE from posts WHERE id = ?');
         $deletedComments = $db->prepare('DELETE from comments WHERE post_id = ?');
@@ -46,5 +48,14 @@ class PostManager extends Manager
         $affectedLines = $deletedPost->execute(array($postId));
         
         return $affectedLines;
+     }
+
+    // fonction pour créer un billet
+    public function createPost($title, $content) {
+        $db = $this->dbConnect();
+        $req = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUE (?, ?, NOW())');
+        $newPost = $req->execute(array($title, $content));
+
+        return $newPost;
      }
 }

@@ -1,4 +1,5 @@
 <?php
+
 require('controller/frontend.php');
 require('controller/backend.php');
 
@@ -27,9 +28,15 @@ try {
         } elseif ($_GET['action'] == 'reportComment') {
             reportComment($_GET['id'], $_GET['postId']);
         } elseif ($_GET['action'] == 'displayPostForm') {
-            displayPostForm();
+            createPostForm();
         } elseif ($_GET['action'] == 'createPost') {
-            createPost();
+            createPost($_POST['title'], $_POST['content']);
+        } elseif ($_GET['action'] == 'updatePostForm') {
+            if(isset($_GET['id']) && $_GET['id'] > 0) {
+                updatePostForm($_GET['id']);
+            } else {
+                throw new Exception('Erreur : aucun identifiant de billet envoyé.');
+            }            
         } elseif ($_GET['action'] == 'updatePost') {
             updatePost($_GET['id'], $_GET['content'], $_GET['creation_date']);
         } elseif ($_GET['action'] == 'deletePost') {

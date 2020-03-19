@@ -3,6 +3,10 @@
 <?php ob_start(); ?>
 
         <h1>Jean Forteroche - Ecrivain</h1>
+
+        <form action="index.php?action=displayPostForm" method="post">
+            <input type="submit" value="Créer un nouveau billet">
+        </form>
                
         <p>Derniers billets du blog :</p>
         <?php
@@ -26,7 +30,7 @@
         <form action="index.php?action=deletePost&amp;id=<?= htmlspecialchars($post['id'])?>" method="post">
         <input type="submit" value="Effacer"/>
         </form>
-        <form action="index.php?action=updatePost&amp;id=<?= htmlspecialchars($post['id'])?>" method="post">
+        <form action="index.php?action=updatePostForm&amp;id=<?= htmlspecialchars($post['id'])?>" method="post">
         <input type="submit" value="Modifier"/>
         </form>
 <?php
