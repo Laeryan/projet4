@@ -29,11 +29,11 @@ class PostManager extends Manager
     }
 
     // fonction pour mettre à jour un billet
-    public function updatePost($title, $content, $date) {
+    public function updatePost($title, $content, $postId) {
 
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE posts SET title = ?, content = ?, creation_date = NOW() WHERE id = ?');
-        $affectedLines = $req->execute(array($title, $content, $date));
+        $affectedLines = $req->execute(array($title, $content, $postId));
 
         return $affectedLines;
     }

@@ -5,6 +5,7 @@
 <h2>Créez un nouveau billet</h2>
 
 <form action="index.php?action=<?= $action ?>" method="post">
+    <input type="hidden" name="id" value="<?= htmlspecialchars($postId)?>" >
     <input type="text" name="title" placeholder="Saisissez votre titre." value="<?= htmlspecialchars($postTitle)?>"/>
     <textarea name="content" placeholder="Saisissez votre texte."><?= htmlspecialchars($postContent)?></textarea>
     <input type="submit" value="Enregistrer" />

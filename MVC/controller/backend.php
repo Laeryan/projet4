@@ -17,22 +17,23 @@ function createPost($title, $content) {
 function createPostForm() {
 
     $action = 'createPost';
+    $postId = '';
     $postTitle = '';
     $postContent = '';
 
     require('view/backend/postForm.php');
 }
 
-function updatePost($title, $content, $date) {
+function updatePost($title, $content, $postId) {
 
     $postManager = new PostManager();
 
-    $updatedPost = $postManager->updatePost($title, $content, $date);
+    $updatedPost = $postManager->updatePost($title, $content, $postId);
 
     if ($updatedPost === false) {
         throw new exception('Impossible de modifier le billet.');
     } else {
-        header('location:index.php?action=postView&id=' . $postId);
+        header('location:index.php?action=postView&id='. $postId);
     }
 }
 
@@ -43,6 +44,7 @@ function updatePostForm($postId) {
     $updatePost = $postManager->getPost($postId);
 
     $action = 'updatePost';
+    $postId = $updatePost['id'];
     $postTitle = $updatePost['title'];
     $postContent = $updatePost['content'];
 

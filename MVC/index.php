@@ -38,7 +38,7 @@ try {
                 throw new Exception('Erreur : aucun identifiant de billet envoyé.');
             }            
         } elseif ($_GET['action'] == 'updatePost') {
-            updatePost($_GET['id'], $_GET['content'], $_GET['creation_date']);
+            updatePost($_POST['title'], $_POST['content'], $_POST['id']);
         } elseif ($_GET['action'] == 'deletePost') {
             deletePost($_GET['id']);
         }

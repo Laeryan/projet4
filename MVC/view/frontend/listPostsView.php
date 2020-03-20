@@ -19,13 +19,10 @@
                 <?= htmlspecialchars($post['title']); ?> <!-- = < ?php echo naninaninani ?> -->
                 <em>le <?= $post['creation_date_fr']; ?></em>
             </h3>
-            
-            <p>
 
             <?= nl2br(htmlspecialchars($post['content']));
             ?><br />
             <em><a href="index.php?action=postView&id=<?= $post['id']?>">Voir le billet</a></em>
-            </p>
         </div>
         <form action="index.php?action=deletePost&amp;id=<?= htmlspecialchars($post['id'])?>" method="post">
         <input type="submit" value="Effacer"/>
