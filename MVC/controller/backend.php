@@ -95,5 +95,6 @@ function login()
             header('location:index.php?action=listPosts');
         }
     }
-    // $_SESSION['userName'] = $_POST['userName'] ; 
+
+    $_SESSION['username'] = $_POST['username'] ; 
 }

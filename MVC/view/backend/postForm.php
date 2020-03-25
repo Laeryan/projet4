@@ -12,7 +12,11 @@
     <input type="submit" value="Enregistrer" />
 </form>
 
+<h3>Vous avez maintenant la possibilité de modifier ou supprimer les billets que vous avez créé.</h3>
+
 <p><a href="index.php?action=listPosts">Retour à la liste des billets</a></p>
+
+<p><a href="index.php?action=disconnect">Se déconnecter de la page d'administration</a></p> <!-- ajouter la fonction disconnect à l'Index -->
 
 <?php $content = ob_get_clean(); ?>
 

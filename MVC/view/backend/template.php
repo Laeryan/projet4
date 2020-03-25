@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <?php include('view/frontend/menu.php') ?>
     <?= $content ?>
     <script>
         tinymce.init({
