@@ -6,19 +6,20 @@ require('controller/backend.php');
 
 try {
     if (isset($_GET['action'])) {
+        
+        // Actions du menu
+
         if ($_GET['action'] == 'mainPage') {
             mainPage();
         } elseif ($_GET['action'] == 'contact') {
             contact();
         } elseif ($_GET['action'] == 'listPosts') {
             listPosts();
-        } elseif ($_GET['action'] == 'postView') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                postView();
-            } else {
-                throw new Exception('Erreur : aucun identifiant de billet envoyé.');
-            }
-        } elseif ($_GET['action'] == 'addComment') {
+        }
+
+        // Gestion des commentaires 
+
+        elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
@@ -32,6 +33,16 @@ try {
             deleteComment($_GET['id'], $_GET['postId']);
         } elseif ($_GET['action'] == 'reportComment') {
             reportComment($_GET['id'], $_GET['postId']);
+        } 
+        
+        // Gestion des billets
+
+        elseif ($_GET['action'] == 'postView') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                postView();
+            } else {
+                throw new Exception('Erreur : aucun identifiant de billet envoyé.');
+            }
         } elseif ($_GET['action'] == 'displayPostForm') {
             createPostForm();
         } elseif ($_GET['action'] == 'createPost') {
@@ -46,7 +57,11 @@ try {
             updatePost($_POST['title'], $_POST['content'], $_POST['id']);
         } elseif ($_GET['action'] == 'deletePost') {
             deletePost($_GET['id']);
-        } elseif ($_GET['action'] == 'displayLogin') {
+        }
+        
+        // Connexion aux sessions
+
+        elseif ($_GET['action'] == 'displayLogin') {
             displayLogin();
         } elseif ($_GET['action'] == 'login') {
             login();

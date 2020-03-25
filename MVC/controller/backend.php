@@ -1,6 +1,7 @@
 <?php
 
 require_once('model/PostManager.php');
+require_once('model/UserManager.php');
 
 function createPost($title, $content)
 {
@@ -69,15 +70,30 @@ function deletePost($postId)
     }
 }
 
-function displayLogin() {
+function displayLogin()
+{
 
     require('view/backend/loginView.php');
 }
 
-function login() {
-    echo $_POST['userName'];
-    echo $_POST['password'];
-   // $_SESSION['userName'] = $_POST['userName'] ; 
+function login()
+{
 
-    var_dump($_SESSION);
+    $userManager = new UserManager();
+
+    $user = $userManager->getUsers($_POST['username'], $_POST['password']);
+
+    var_dump($user);
+    var_dump($_POST);
+
+    if ($user === false) {
+        header('location:index.php?action=displayLogin');
+    } else {
+        if ($user['admin'] == 1) {
+            header('location:index.php?action=displayPostForm');
+        } else {
+            header('location:index.php?action=listPosts');
+        }
+    }
+    // $_SESSION['userName'] = $_POST['userName'] ; 
 }

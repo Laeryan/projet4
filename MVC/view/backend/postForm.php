@@ -2,7 +2,8 @@
 
 <?php ob_start(); ?>
 
-<h2>Créez un nouveau billet</h2>
+<h2>Bienvenue dans votre espace d'administration Jean !</h2>
+<h3>Créez un nouveau billet</h3>
 
 <form action="index.php?action=<?= $action ?>" method="post">
     <input type="hidden" name="id" value="<?= htmlspecialchars($postId)?>" >
