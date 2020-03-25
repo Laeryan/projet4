@@ -1,0 +1,29 @@
+@font-face
+{
+	font-family: "quicksand";
+    src: url(../../public/fonts/Quicksand-Regular.otf);
+}
+
+@font-face
+{
+	font-family: "curve";
+	src: url(../../public/fonts/learning_curve_bold_ot_ps.otf);
+}
+
+/* Général */
+
+h1, h2 {
+    font-family: 'curve';
+}
+
+h1 {
+    font-size: 5em;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+body {
+    font-family: 'quicksand';
+}

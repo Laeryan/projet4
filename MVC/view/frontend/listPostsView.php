@@ -1,14 +1,8 @@
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
-
-        <h1>Jean Forteroche - Ecrivain</h1>
-
-        <form action="index.php?action=displayPostForm" method="post">
-            <input type="submit" value="Créer un nouveau billet">
-        </form>
-               
-        <p>Derniers billets du blog :</p>
+              
+        <h2>Derniers billets du blog :</h2>
         <?php
         while ($post = $posts->fetch())
         {

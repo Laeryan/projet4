@@ -1,11 +1,16 @@
 <?php
+session_start();
 
 require('controller/frontend.php');
 require('controller/backend.php');
 
 try {
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
+        if ($_GET['action'] == 'mainPage') {
+            mainPage();
+        } elseif ($_GET['action'] == 'contact') {
+            contact();
+        } elseif ($_GET['action'] == 'listPosts') {
             listPosts();
         } elseif ($_GET['action'] == 'postView') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -41,9 +46,13 @@ try {
             updatePost($_POST['title'], $_POST['content'], $_POST['id']);
         } elseif ($_GET['action'] == 'deletePost') {
             deletePost($_GET['id']);
+        } elseif ($_GET['action'] == 'displayLogin') {
+            displayLogin();
+        } elseif ($_GET['action'] == 'login') {
+            login();
         }
     } else {
-        listPosts();
+        mainPage();
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();

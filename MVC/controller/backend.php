@@ -2,7 +2,8 @@
 
 require_once('model/PostManager.php');
 
-function createPost($title, $content) {
+function createPost($title, $content)
+{
 
     $postManager = new PostManager();
 
@@ -14,7 +15,8 @@ function createPost($title, $content) {
     }
 }
 
-function createPostForm() {
+function createPostForm()
+{
 
     $action = 'createPost';
     $postId = '';
@@ -24,7 +26,8 @@ function createPostForm() {
     require('view/backend/postForm.php');
 }
 
-function updatePost($title, $content, $postId) {
+function updatePost($title, $content, $postId)
+{
 
     $postManager = new PostManager();
 
@@ -33,14 +36,15 @@ function updatePost($title, $content, $postId) {
     if ($updatedPost === false) {
         throw new exception('Impossible de modifier le billet.');
     } else {
-        header('location:index.php?action=postView&id='. $postId);
+        header('location:index.php?action=postView&id=' . $postId);
     }
 }
 
-function updatePostForm($postId) {
+function updatePostForm($postId)
+{
 
     $postManager = new PostManager();
-    
+
     $updatePost = $postManager->getPost($postId);
 
     $action = 'updatePost';
@@ -51,7 +55,8 @@ function updatePostForm($postId) {
     require('view/backend/postForm.php');
 }
 
-function deletePost($postId) {
+function deletePost($postId)
+{
 
     $postManager = new PostManager();
 
@@ -64,3 +69,15 @@ function deletePost($postId) {
     }
 }
 
+function displayLogin() {
+
+    require('view/backend/loginView.php');
+}
+
+function login() {
+    echo $_POST['userName'];
+    echo $_POST['password'];
+   // $_SESSION['userName'] = $_POST['userName'] ; 
+
+    var_dump($_SESSION);
+}
