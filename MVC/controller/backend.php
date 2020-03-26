@@ -3,6 +3,7 @@
 require_once('model/PostManager.php');
 require_once('model/UserManager.php');
 
+// Fonction permettant d'afficher un nouveau billet
 function createPost($title, $content)
 {
 
@@ -16,6 +17,7 @@ function createPost($title, $content)
     }
 }
 
+// Fonction permettant d'ouvrir le formulaire pour créer un nouveau billet
 function createPostForm()
 {
 
@@ -27,6 +29,7 @@ function createPostForm()
     require('view/backend/postForm.php');
 }
 
+// Fonction permettant d'afficher un billet qui vient d'être modifié
 function updatePost($title, $content, $postId)
 {
 
@@ -41,6 +44,7 @@ function updatePost($title, $content, $postId)
     }
 }
 
+// Fonction permettant d'ouvrir le formulaire pour modifier un billet avec le contenu déjà présent
 function updatePostForm($postId)
 {
 
@@ -56,6 +60,7 @@ function updatePostForm($postId)
     require('view/backend/postForm.php');
 }
 
+// Fonction permettant de supprimer un billet
 function deletePost($postId)
 {
 
@@ -70,22 +75,20 @@ function deletePost($postId)
     }
 }
 
+// Fonction permettant l'affichage du formulaire de connexion
 function displayLogin()
 {
-
     require('view/backend/loginView.php');
 }
 
+// Fonction permettant de s'identifier
 function login()
 {
-
     $userManager = new UserManager();
 
     $user = $userManager->getUsers($_POST['username'], $_POST['password']);
 
-    var_dump($user);
-    var_dump($_POST);
-
+    // on vérifie si l'utilisateur est admin ou non pour limiter l'accès
     if ($user === false) {
         header('location:index.php?action=displayLogin');
     } else {
@@ -96,5 +99,13 @@ function login()
         }
     }
 
-    $_SESSION['username'] = $_POST['username'] ; 
+    $_SESSION['username'] = $_POST['username'] ;
+    $_SESSION['password'] = $_POST['password'] ;
+}
+
+// Fonction permettant la deconnexion de l'utilisateur
+function disconnect()
+{
+    session_destroy();
+    header('locationindex.php?action=mainPage');
 }
