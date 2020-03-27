@@ -13,6 +13,18 @@ function contact() {
     require('view/frontend/contact.php');
 }
 
+function mailContact($mail, $title, $message) {
+    $emailFrom = "miss_ayumi@hotmail.com";
+    $emailSubject = "Vous avez reçu un message sur votre blog !";
+    $emailBody = "Vous avez reçu un nouveau message,\n Sujet : $title\n" . " Email : $mail\n" . "Message : $message\n" ;
+    $to = "miss_ayumi@hotmail.com";
+    $headers = "De : $emailFrom\r\n";
+
+    mail($to, $emailSubject, $emailBody, $headers);
+    header('location:index.php?action=contact');
+    echo('Merci pour votre message, je vous répondrai dès que possible !');
+}
+
 // Fonction pour récupérer les posts dans la base de données
 function listPosts() {
     $postManager = new PostManager();

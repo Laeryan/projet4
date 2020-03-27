@@ -27,6 +27,14 @@ try {
             mainPage();
         } elseif ($_GET['action'] == 'contact') {
             contact();
+        } elseif ($_GET['action'] == 'mailContact') {
+            if (isset($_POST['submit'])) {
+                if (empty($_POST['email']) || empty($_POST['title']) || empty($_POST['message'])) {
+                    echo ('Veuillez remplir tous les champs.');
+                } else {
+                    mailContact($_POST['email'], $_POST['title'], $_POST['message']);
+                }
+            }
         } elseif ($_GET['action'] == 'listPosts') {
             listPosts();
         }
@@ -79,11 +87,13 @@ try {
             displayLogin();
         } elseif ($_GET['action'] == 'login') {
             login();
-        } elseif ($_Get['action'] == 'disconnect') {
+        } elseif ($_GET['action'] == 'disconnect') {
             disconnect();
         } else {
             mainPage();
         }
+    } else {
+        mainPage();
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();

@@ -26,7 +26,7 @@ function createPostForm()
     $postTitle = '';
     $postContent = '';
 
-    require('view/backend/postForm.php');
+    require('view/backend/postFormView.php');
 }
 
 // Fonction permettant d'afficher un billet qui vient d'être modifié
@@ -57,7 +57,7 @@ function updatePostForm($postId)
     $postTitle = $updatePost['title'];
     $postContent = $updatePost['content'];
 
-    require('view/backend/postForm.php');
+    require('view/backend/postFormView.php');
 }
 
 // Fonction permettant de supprimer un billet
@@ -78,7 +78,11 @@ function deletePost($postId)
 // Fonction permettant l'affichage du formulaire de connexion
 function displayLogin()
 {
-    require('view/backend/loginView.php');
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+        createPostForm();
+    } else {
+        require('view/backend/loginView.php');
+    }
 }
 
 // Fonction permettant de s'identifier
@@ -86,26 +90,27 @@ function login()
 {
     $userManager = new UserManager();
 
-    $user = $userManager->getUsers($_POST['username'], $_POST['password']);
+    $user = $userManager->getUser($_POST['username'], $_POST['password']);
 
     // on vérifie si l'utilisateur est admin ou non pour limiter l'accès
     if ($user === false) {
         header('location:index.php?action=displayLogin');
     } else {
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['pssword'] = $user['pssword'];
+        $_SESSION['admin'] = $user['admin'];
+
         if ($user['admin'] == 1) {
             header('location:index.php?action=displayPostForm');
         } else {
             header('location:index.php?action=listPosts');
         }
     }
-
-    $_SESSION['username'] = $_POST['username'] ;
-    $_SESSION['password'] = $_POST['password'] ;
 }
 
 // Fonction permettant la deconnexion de l'utilisateur
 function disconnect()
 {
     session_destroy();
-    header('locationindex.php?action=mainPage');
+    header('location:index.php?action=mainPage');
 }

@@ -18,12 +18,15 @@
             ?><br />
             <em><a href="index.php?action=postView&id=<?= $post['id']?>">Voir le billet</a></em>
         </div>
+            <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) { ?>
         <form action="index.php?action=deletePost&amp;id=<?= htmlspecialchars($post['id'])?>" method="post">
         <input type="submit" value="Effacer"/>
         </form>
         <form action="index.php?action=updatePostForm&amp;id=<?= htmlspecialchars($post['id'])?>" method="post">
         <input type="submit" value="Modifier"/>
         </form>
+            <?php } ?>
+
 <?php
         }
 $posts->closeCursor();
