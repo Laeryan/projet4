@@ -4,7 +4,7 @@ require_once('model/Manager.php');
 
 class PostManager extends Manager
 {
-    // affiche les 5 derniers billets sur la page d'accueil
+    // Fonction qui récuère tous les billets, et affiche les 5 derniers sur la page d'accueil
     public function getPosts()
     {
         $db = $this->dbConnect();
@@ -15,7 +15,7 @@ class PostManager extends Manager
         return $req;
     }
 
-    // affiche 1 billet par page 
+    // Fonction qui affiche le billet spécifié sur une page
     public function getPost($postId) {
 
         $db = $this->dbConnect();
@@ -28,7 +28,7 @@ class PostManager extends Manager
         return $post;
     }
 
-    // fonction pour mettre à jour un billet
+    // Fonction pour mettre à jour un billet
     public function updatePost($title, $content, $postId) {
 
         $db = $this->dbConnect();
@@ -38,7 +38,7 @@ class PostManager extends Manager
         return $affectedLines;
     }
 
-    // fonction pour supprimer un billet
+    // Fonction pour supprimer un billet
     public function deletePost($postId){
 
         $db = $this->dbconnect();
@@ -50,7 +50,7 @@ class PostManager extends Manager
         return $affectedLines;
      }
 
-    // fonction pour créer un billet
+    // Fonction pour créer un billet
     public function createPost($title, $content) {
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUE (?, ?, NOW())');

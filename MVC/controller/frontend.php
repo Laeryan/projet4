@@ -13,6 +13,7 @@ function contact() {
     require('view/frontend/contact.php');
 }
 
+// Fonction qui détermine l'aspect du message envoyé via le formulaire de contact
 function mailContact($mail, $title, $message) {
     $emailFrom = "miss_ayumi@hotmail.com";
     $emailSubject = "Vous avez reçu un message sur votre blog !";
@@ -22,7 +23,6 @@ function mailContact($mail, $title, $message) {
 
     mail($to, $emailSubject, $emailBody, $headers);
     header('location:index.php?action=contact');
-    echo('Merci pour votre message, je vous répondrai dès que possible !');
 }
 
 // Fonction pour récupérer les posts dans la base de données
@@ -39,7 +39,7 @@ function postView() {
     $commentManager = new CommentManager();
 
     $post = $postManager->getPost($_GET['id']);
-    $comments = $commentManager->getComments($_GET['id']);
+    $comments = $commentManager->getCommentsByPostId($_GET['id']);
 
     require('view/frontend/postView.php');
 }

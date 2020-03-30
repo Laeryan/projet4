@@ -14,16 +14,88 @@
 
 h1, h2 {
     font-family: 'curve';
+    font-weight: bold;
 }
 
 h1 {
-    font-size: 5em;
+    font-size: 6em;
+    color: #3D2205;
 }
 
 h2 {
-    font-size: 3em;
+    font-size: 4em;
+    color: #3D2205;
 }
 
 body {
     font-family: 'quicksand';
+    background-image: url("../images/bg.jpg");
+    width: 100%;
+}
+
+p {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* Menu */
+
+header {
+    display: flex;
+    z-index: 1;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 125px;
+}
+
+header ul, li {
+    list-style-type: none;
+    display: flex;
+    margin: 0 auto;
+}
+
+ header ul {
+     margin-left: 200px;
+ }
+
+header a {
+    margin-top: 30px;
+    margin-right: 80px;
+    text-decoration: none;
+    font-size: 3em;
+    font-weight: bold;
+    color: #6C3701;
+}
+
+header a:hover {
+    color:#9A5B19 ;
+}
+
+#title {
+    text-align: center;
+}
+
+section {
+    padding: 30px;
+}
+
+#content {
+    width: 1400px;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+#content img {
+    float: left;
+    margin-right: 30px;
+    border-radius: 15px;
+}
+
+#bio {
+    text-align: justify;
 }

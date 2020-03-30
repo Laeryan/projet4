@@ -2,11 +2,11 @@
 
 require_once('model/PostManager.php');
 require_once('model/UserManager.php');
+require_once('model/CommentManager.php');
 
 // Fonction permettant d'afficher un nouveau billet
 function createPost($title, $content)
 {
-
     $postManager = new PostManager();
 
     $newPost = $postManager->createPost($title, $content);
@@ -17,14 +17,22 @@ function createPost($title, $content)
     }
 }
 
+function retrieveReportedComments() {
+    $commentManager = new CommentManager();
+
+    $comments = $commentManager->getReportedComments();
+    
+    return $comments;
+}
+
 // Fonction permettant d'ouvrir le formulaire pour créer un nouveau billet
 function createPostForm()
 {
-
     $action = 'createPost';
     $postId = '';
     $postTitle = '';
     $postContent = '';
+    $comments = retrieveReportedComments();
 
     require('view/backend/postFormView.php');
 }
@@ -32,7 +40,6 @@ function createPostForm()
 // Fonction permettant d'afficher un billet qui vient d'être modifié
 function updatePost($title, $content, $postId)
 {
-
     $postManager = new PostManager();
 
     $updatedPost = $postManager->updatePost($title, $content, $postId);
@@ -47,7 +54,6 @@ function updatePost($title, $content, $postId)
 // Fonction permettant d'ouvrir le formulaire pour modifier un billet avec le contenu déjà présent
 function updatePostForm($postId)
 {
-
     $postManager = new PostManager();
 
     $updatePost = $postManager->getPost($postId);
@@ -56,6 +62,7 @@ function updatePostForm($postId)
     $postId = $updatePost['id'];
     $postTitle = $updatePost['title'];
     $postContent = $updatePost['content'];
+    $comments = retrieveReportedComments();
 
     require('view/backend/postFormView.php');
 }
@@ -63,7 +70,6 @@ function updatePostForm($postId)
 // Fonction permettant de supprimer un billet
 function deletePost($postId)
 {
-
     $postManager = new PostManager();
 
     $deletedPost = $postManager->deletePost($postId);

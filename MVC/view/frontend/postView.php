@@ -37,9 +37,6 @@
            <form action="index.php?action=deleteComment&amp;id=<?= htmlspecialchars($comment['id']) . '&postId=' . htmlspecialchars($post['id']) ?>" method="post">
                <input type="submit" value="Effacer" />
            </form>
-           <form action="index.php?action=updateComment&amp;id=<?= htmlspecialchars($comment['id']) . '&postId=' . htmlspecialchars($post['id']) ?>" method="post">
-               <input type="submit" value="Modifier" />
-           </form>
        <?php } ?>
 
        <?php if ($comment['report'] == 0) : ?>

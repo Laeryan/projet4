@@ -3,15 +3,18 @@
 
 <head>
     <meta charset="utf-8" />
-    <title><?= $title ?></title>
-    <link href="public/css/style.css" rel="stylesheet" />
+    <title>Un billet pour l'Alaska</title>
+    <link rel='stylesheet' type='text/css' href='public/css/style.css' />
 
 
 </head>
 
 <body>
-    <?php include('menu.php') ?>
-    <?= $content ?>
+    <header> <?php include('menu.php') ?></header>
+    
+    <section id="content"> <?= $content ?></section>
+
+    <footer> <?php include('footer.php') ?></footer>
 </body>
 
 </html>

@@ -4,8 +4,8 @@ require_once('model/Manager.php');
 
 class CommentManager extends Manager
 {
-    // accède à la bdd pour récupérer les commentaires
-    public function getComments($postId)
+    // accède à la bdd pour récupérer les commentaires pour chaque post
+    public function getCommentsByPostId($postId)
     {
         $db = $this->dbConnect();
         $comments = $db->prepare('SELECT id, author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
@@ -13,6 +13,16 @@ class CommentManager extends Manager
 
         return $comments;
     }
+
+    // Fonction qui permet de récupérer tous les commentaires 
+    public function getReportedComments() {
+        $db = $this->dbConnect();
+        $comments = $db->prepare('SELECT * FROM comments WHERE report = 1 ORDER BY comment_date DESC');
+        $comments->execute(array());
+
+        return $comments;
+    }
+
 
     // permet de créer un commentaire
     public function addComment($postId, $author, $comment)
@@ -40,7 +50,5 @@ class CommentManager extends Manager
         $db = $this->dbConnect();
         $reportedComment = $db->prepare('UPDATE comments SET report = 1 WHERE id = ?');
         $reportedComment->execute(array($commentId));
-
-        return ('Le commentaire a bien été signalé.');
     } 
 }
