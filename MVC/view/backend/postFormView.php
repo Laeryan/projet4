@@ -1,4 +1,4 @@
-<?php $title = 'Mon blog'; ?>
+<!-- Vue de la page d'administration -->
 
 <?php ob_start(); ?>
 

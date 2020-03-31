@@ -15,26 +15,27 @@
 h1, h2 {
     font-family: 'curve';
     font-weight: bold;
+    text-shadow: 5px 5px 15px black;
 }
 
 h1 {
-    font-size: 6em;
+    font-size: 5em;
     color: #3D2205;
+    
 }
 
 h2 {
-    font-size: 4em;
+    font-size: 3em;
     color: #3D2205;
 }
 
 body {
     font-family: 'quicksand';
     background-image: url("../images/bg.jpg");
-    width: 100%;
 }
 
-p {
-    font-size: 1.3em;
+body p {
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -47,9 +48,8 @@ header {
     background-color: white;
     top: 0;
     left: 0;
-    right: 0;
     width: 100%;
-    height: 125px;
+    height: 90px;
 }
 
 header ul, li {
@@ -59,20 +59,20 @@ header ul, li {
 }
 
  header ul {
-     margin-left: 200px;
+     margin-left: 340px;
  }
 
 header a {
-    margin-top: 30px;
-    margin-right: 80px;
+    margin-top: 25px;
+    margin-right: 130px;
     text-decoration: none;
-    font-size: 3em;
+    font-size: 30px;
     font-weight: bold;
     color: #6C3701;
 }
 
 header a:hover {
-    color:#9A5B19 ;
+    color:#9A5B19;
 }
 
 #title {
@@ -84,18 +84,114 @@ section {
 }
 
 #content {
-    width: 1400px;
-    background-color: rgba(255, 255, 255, 0.4);
+    width: 700px;
+    background-color: rgba(255, 255, 255, 0.6);
     margin: 0 auto;
-    margin-top: 100px;
+    box-shadow: 0px 5px 100px black;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 #content img {
     float: left;
-    margin-right: 30px;
+    margin-right: 20px;
+    margin-bottom: 10px;
     border-radius: 15px;
+    width: 500px;
+}
+
+#book_description ul {
+    font-size: 16px;
+    font-weight: bold;
 }
 
 #bio {
     text-align: justify;
+}
+
+.newPost {
+    font-weight: bold;
+    margin-top: 100px;
+    text-align: justify;
+}
+
+.newPost p {
+    font-size: 16px;
+}
+
+.newPost h3 {
+    border-top: 2px solid #3D2205;
+    padding-top: 30px;
+    font-size: 1.5em;
+}
+
+#commentaires {
+    border: 2px dashed #3D2205;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 10px;
+}
+
+input {
+    width: 200px;
+    height: 30px;
+    font-size: 1.2em;
+    border: 2px solid #3D2205;
+    border-radius: 5px;
+    font-family: 'quicksand';
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 500px;
+    height: 200px;
+    font-size: 1.1em;
+    border: 2px solid #3D2205;
+    border-radius: 5px;
+    font-family: 'quicksand';
+    font-weight: bold;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.submit {
+    width: 210px;
+    height: 40px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.liens {
+    color: #3D2205;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.liens:hover {
+    color: #9A5B19;
+}
+
+footer {
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    font-weight: bold;
+    position: static;
+    left: 0;
+}
+
+footer ul {
+    display: flex;
+}
+
+footer li {
+    color: #6C3701;
+    font-size: 20px;
+    margin-top: 20px;
 }

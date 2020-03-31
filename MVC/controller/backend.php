@@ -1,5 +1,6 @@
 <?php
 
+// Appel des manager nécessaires
 require_once('model/PostManager.php');
 require_once('model/UserManager.php');
 require_once('model/CommentManager.php');
@@ -17,6 +18,7 @@ function createPost($title, $content)
     }
 }
 
+// Fonction qui permet d'afficher les commentaires signalés
 function retrieveReportedComments() {
     $commentManager = new CommentManager();
 

@@ -1,6 +1,6 @@
 <?php
 
-// super classe 
+// Super classe pour l'accèes à la bdd
 class Manager
 {
     protected function dbConnect()

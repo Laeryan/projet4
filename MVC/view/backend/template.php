@@ -1,11 +1,14 @@
+<!-- Template pour la page d'administration avec intégration de TinyMCE -->
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
     <title>Un billet pour l'Alaska</title>
-    <link href="public/css/style.css" rel="stylesheet" />
+    <link rel='stylesheet' type='text/css' href='public/css/style.css'/>
     <script src="https://cdn.tiny.cloud/1/pefo8x535mnq9k6am9ermwm3q0r7vln08vd8ojod3htjkcz3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    
 </head>
 
 <body>
@@ -19,7 +22,7 @@
             toolbar_mode: 'floating',
             tinycomments_mode: 'embedded',
             tinycomments_author: 'Author name',
-            forced_root_block: '',
+            forced_root_block: false,
             force_br_newlines: true,
             force_p_newlines: false,
         });

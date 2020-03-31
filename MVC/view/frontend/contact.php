@@ -1,3 +1,5 @@
+<!-- Vue de la page de contact -->
+
 <?php ob_start(); ?>
 
 <h2>Me contacter</h2>
@@ -6,8 +8,8 @@
 <form action="index.php?action=mailContact" method="post">
 <input type="email" name="email" placeholder="Votre e-mail">
 <input type="text" name="title" placeholder="Titre">
-<input type="text" name="message" placeholder="Votre message">
-<input type="submit" name="submit" value="Envoyer le message"> 
+<textarea name="message" placeholder="Votre message"></textarea>
+<input class= "submit" type="submit" name="submit" value="Envoyer le message"> 
 </form>
 
 <?php $content = ob_get_clean(); ?>

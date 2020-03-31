@@ -1,7 +1,10 @@
 <?php
 
+// Appel du manager
 require_once('model/Manager.php');
 
+
+// Classe qui va gérer les utilisateurs
 class UserManager extends Manager {
 
     public function getUser($userName, $password) {

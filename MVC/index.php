@@ -1,11 +1,14 @@
 <?php
-session_start();
-$id_session = session_id();
 
+// Démarrage de la session
+session_start();
+
+
+// Appel des fichier requis
 require('controller/frontend.php');
 require('controller/backend.php');
 
-
+// Saisie des exceptions potentielles
 try {
     if (isset($_GET['action'])) {
 
@@ -85,5 +88,5 @@ try {
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
-    require('view/errorView.php');
+    echo('Une erreur est survenue. Veuillez réessayer.');
 }

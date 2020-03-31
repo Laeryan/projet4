@@ -1,3 +1,5 @@
+<!-- Vue de la page de connexion de l'administrateur -->
+
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
@@ -6,8 +8,8 @@
 
 <form action="index.php?action=login" method="post">
     <input type="text" name="username" placeholder="Nom d'utilisateur">
-    <input type="password" name="password" placeholder="Mot de passe."/>
-    <input type="submit" value="Se connecter" />
+    <input type="password" name="password" placeholder="Mot de passe"/>
+    <input class="submit" type="submit" value="Se connecter" />
 </form>
 
 <?php $content = ob_get_clean(); ?>
