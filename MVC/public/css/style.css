@@ -39,6 +39,44 @@ body p {
     font-weight: bold;
 }
 
+#lien_admin a {
+    color: #3D2205;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#lien_admin a:hover {
+    color: #9A5B19;
+}
+
+#tableau {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+table {
+    margin-bottom: 50px;
+    border-collapse: collapse;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+}
+
+table th, td {
+    border: 2px solid #3D2205;
+    padding: 10px;
+}
+
+table a {
+    color: #3D2205;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+table a:hover {
+    color: #9A5B19;
+}
+
 /* Menu */
 
 header {
@@ -74,6 +112,8 @@ header a {
 header a:hover {
     color:#9A5B19;
 }
+
+/* Billets et commentaires */
 
 #title {
     text-align: center;
@@ -132,12 +172,14 @@ section {
     border-radius: 5px;
     width: fit-content;
     padding: 10px;
+    margin-bottom: 30px;
+    width: 100%;
 }
 
 input {
-    width: 200px;
-    height: 30px;
-    font-size: 1.2em;
+    width: 150px;
+    height: 20px;
+    font-size: 16px;
     border: 2px solid #3D2205;
     border-radius: 5px;
     font-family: 'quicksand';
@@ -151,7 +193,7 @@ input {
 textarea {
     width: 500px;
     height: 200px;
-    font-size: 1.1em;
+    font-size: 16px;
     border: 2px solid #3D2205;
     border-radius: 5px;
     font-family: 'quicksand';
@@ -161,8 +203,8 @@ textarea {
 }
 
 .submit {
-    width: 210px;
-    height: 40px;
+    width: 150px;
+    height: 30px;
     justify-content: center;
     margin-top: 30px;
 }
@@ -176,6 +218,8 @@ textarea {
 .liens:hover {
     color: #9A5B19;
 }
+
+/* Footer */
 
 footer {
     background-color: white;

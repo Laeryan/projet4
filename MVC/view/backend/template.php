@@ -4,16 +4,39 @@
 <html>
 
 <head>
+    <!-- Open Graph -->
+
+	<meta property="og:title" content="Dernier billetp our l'Alaska"/>
+	<meta property="og:type" content="Site web"/>
+	<meta property="og:url" content="#"/>
+	<meta property="og:image" content="public/images/jeanforteroche.jpg"/>
+	<meta property="og:description" content="Lisez le dernier roman de Jean Forteroche : Dernier billetp our l'Alaska."/>
+
+	<meta name="twitter:card" content="Dernier billet pour l'Alaska"/>
+	<meta name="twitter:site" content="@JForteroche"/>
+	<meta name="twitter:title" content="Dernier billet pour l'Alaska"/>
+	<meta name="twitter:description" content="Lisez le dernier roman de Jean Forteroche : Dernier billet pour l'Alaska."/>
+	<meta name="twitter:creator" content="@JForteroche"/>
+    <meta name="twitter:image" content="public/images/jeanforteroche.jpg"/>
+    
+    <!-- fin-->
+
     <meta charset="utf-8" />
     <title>Un billet pour l'Alaska</title>
-    <link rel='stylesheet' type='text/css' href='public/css/style.css'/>
+    <link rel="icon" href="public/images/feather.png" />
+    <link rel='stylesheet' type='text/css' href='public/css/style.css' />
     <script src="https://cdn.tiny.cloud/1/pefo8x535mnq9k6am9ermwm3q0r7vln08vd8ojod3htjkcz3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    
+
 </head>
 
 <body>
-    <?php include('view/frontend/menu.php') ?>
-    <?= $content ?>
+    <header>
+        <?php include('view/frontend/menu.php') ?>
+    </header>
+
+    <section id="content">
+        <?= $content ?>
+    </section>
     <script>
         tinymce.init({
             selector: 'textarea',

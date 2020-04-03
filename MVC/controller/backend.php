@@ -100,7 +100,7 @@ function login()
 
     $user = $userManager->getUser($_POST['username'], $_POST['password']);
 
-    // on vérifie si l'utilisateur est admin ou non pour limiter l'accès
+    // on vérifie si l'utilisateur est inscrit ou non pour limiter l'accès
     if ($user === false) {
         header('location:index.php?action=displayLogin');
     } else {
