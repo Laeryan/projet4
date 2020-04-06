@@ -18,9 +18,9 @@ class CommentManager extends Manager
     }
 
     // Fonction qui permet de récupérer tous les commentaires 
-    public function getReportedComments() {
+    public function getAllComments() {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT * FROM comments WHERE report = 1 ORDER BY comment_date DESC');
+        $comments = $db->prepare('SELECT * FROM comments ORDER BY report DESC');
         $comments->execute(array());
 
         return $comments;

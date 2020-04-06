@@ -19,10 +19,10 @@ function createPost($title, $content)
 }
 
 // Fonction qui permet d'afficher les commentaires signalés
-function retrieveReportedComments() {
+function retrieveComments() {
     $commentManager = new CommentManager();
 
-    $comments = $commentManager->getReportedComments();
+    $comments = $commentManager->getAllComments();
     
     return $comments;
 }
@@ -34,7 +34,7 @@ function createPostForm()
     $postId = '';
     $postTitle = '';
     $postContent = '';
-    $comments = retrieveReportedComments();
+    $comments = retrieveComments();
 
     require('view/backend/postFormView.php');
 }
@@ -64,7 +64,7 @@ function updatePostForm($postId)
     $postId = $updatePost['id'];
     $postTitle = $updatePost['title'];
     $postContent = $updatePost['content'];
-    $comments = retrieveReportedComments();
+    $comments = retrieveComments();
 
     require('view/backend/postFormView.php');
 }

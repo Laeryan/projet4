@@ -15,13 +15,16 @@
 <h3>Vous avez maintenant la possibilité de modifier ou supprimer les billets que vous avez créé, directement sur la liste des billets.</h3>
 
 <div id="tableau">
-    <h4>Liste des commentaires signalés :</h4>
+    <h4>Liste des commentaires :</h4>
+    <p>Les commentaires signalés apparaisent en haut du tableau.</p>
+
     <table>
         <thead>
             <tr>
                 <th>Auteur</th>
                 <th>Commentaire</th>
                 <th>Situé</th>
+                <th>Signalé</th>
             </tr>
         </thead>
         <?php while ($comment = $comments->fetch()) { ?>
@@ -29,7 +32,12 @@
                 <tr>
                     <td><?= htmlspecialchars($comment['author']) ?></td>
                     <td><?= htmlspecialchars($comment['comment']) ?></td>
-                    <td><a href="index.php?action=postView&id= <?= $comment['post_id'] ?>">Voir le billet</a></td>
+                    <td><a href="index.php?action=postView&id= <?= $comment['post_id'] ?>">Voir</a></td>
+                    <?php if ($comment['report'] == 1) { ?>
+                        <td class="report"> Oui</td>
+                    <?php } else { ?>
+                        <td> Non </td>
+                    <?php } ?>
                 </tr>
             </tbody>
         <?php  } ?>
