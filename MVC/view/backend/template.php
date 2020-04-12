@@ -1,16 +1,16 @@
 <!-- Template pour la page d'administration avec intégration de TinyMCE -->
 
 <!DOCTYPE html>
-<html>
+<html lang="fr" >
 
 <head>
     <!-- Open Graph -->
 
 	<meta property="og:title" content="Dernier billetp our l'Alaska"/>
 	<meta property="og:type" content="Site web"/>
-	<meta property="og:url" content="#"/>
+	<meta property="og:url" content="http://jeanforteroche-ecrivain.usaginoke.fr/"/>
 	<meta property="og:image" content="public/images/jeanforteroche.jpg"/>
-	<meta property="og:description" content="Lisez le dernier roman de Jean Forteroche : Dernier billetp our l'Alaska."/>
+	<meta property="og:description" content="Lisez le dernier roman de Jean Forteroche : Dernier billet pour l'Alaska."/>
 
 	<meta name="twitter:card" content="Dernier billet pour l'Alaska"/>
 	<meta name="twitter:site" content="@JForteroche"/>
