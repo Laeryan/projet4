@@ -46,8 +46,6 @@ class PostManager extends Manager
 
         $db = $this->dbconnect();
         $deletedPost = $db->prepare('DELETE from posts WHERE id = ?');
-        $deletedComments = $db->prepare('DELETE from comments WHERE post_id = ?');
-        $deletedComments->execute(array($postId));
         $affectedLines = $deletedPost->execute(array($postId));
         
         return $affectedLines;

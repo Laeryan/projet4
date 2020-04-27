@@ -37,6 +37,7 @@ h4 {
 body {
     font-family: 'quicksand';
     background-image: url("../images/bg.jpg");
+    margin: 0 auto;
 }
 
 body p {
@@ -87,6 +88,26 @@ table a:hover {
     font-weight: bold;
 }
 
+fieldset {
+    padding: 30px;
+    border: 2px solid  #3D2205;
+    border-radius: 10px;
+    width: 50%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+legend {
+    font-weight: bold;
+    color:  #3D2205;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.set_password {
+    width: 90%;
+}
+
 /* Menu */
 
 header {
@@ -95,24 +116,27 @@ header {
     position: fixed;
     background-color: white;
     top: 0;
-    left: 0;
     width: 100%;
     height: 90px;
+    margin: 0;
+    justify-content: center;
 }
 
 header ul, li {
-    list-style-type: none;
     display: flex;
     margin: 0 auto;
 }
 
  header ul {
      margin-left: 340px;
+     padding: 0;
+     margin: 0;
  }
 
 header a {
     margin-top: 25px;
-    margin-right: 130px;
+    margin-right: 65px;
+    margin-left: 65px;
     text-decoration: none;
     font-size: 30px;
     font-weight: bold;
@@ -152,9 +176,15 @@ section {
     width: 500px;
 }
 
+#book_description {
+    text-align: justify;
+}
+
 #book_description ul {
     font-size: 16px;
     font-weight: bold;
+    padding: 0;
+    text-align: left;
 }
 
 #bio {
@@ -236,12 +266,15 @@ footer {
     width: 100%;
     height: 70px;
     font-weight: bold;
-    position: static;
     left: 0;
+    position: fixed;
+    bottom: 0;
 }
 
 footer ul {
     display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 footer li {

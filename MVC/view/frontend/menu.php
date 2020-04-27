@@ -1,6 +1,6 @@
 <!-- Vue du menu de navigation -->
 
-<div id="nav">
+<div>
     <nav>
         <ul>
             <li><a href="index.php?action=mainPage">Accueil</a></li>

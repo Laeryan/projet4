@@ -1,24 +1,24 @@
+<!DOCTYPE html>
 <!-- Template pour la page d'administration avec intégration de TinyMCE -->
 
-<!DOCTYPE html>
-<html lang="fr" >
+<html lang="fr">
 
 <head>
     <!-- Open Graph -->
 
-	<meta property="og:title" content="Dernier billetp our l'Alaska"/>
-	<meta property="og:type" content="Site web"/>
-	<meta property="og:url" content="http://jeanforteroche-ecrivain.usaginoke.fr/"/>
-	<meta property="og:image" content="public/images/jeanforteroche.jpg"/>
-	<meta property="og:description" content="Lisez le dernier roman de Jean Forteroche : Dernier billet pour l'Alaska."/>
+    <meta property="og:title" content="Dernier billet pour l'Alaska" />
+    <meta property="og:type" content="Site web" />
+    <meta property="og:url" content="http://jeanforteroche-ecrivain.usaginoke.fr/" />
+    <meta property="og:image" content="public/images/jeanforteroche.jpg" />
+    <meta property="og:description" content="Lisez le dernier roman de Jean Forteroche : Dernier billet pour l'Alaska." />
 
-	<meta name="twitter:card" content="Dernier billet pour l'Alaska"/>
-	<meta name="twitter:site" content="@JForteroche"/>
-	<meta name="twitter:title" content="Dernier billet pour l'Alaska"/>
-	<meta name="twitter:description" content="Lisez le dernier roman de Jean Forteroche : Dernier billet pour l'Alaska."/>
-	<meta name="twitter:creator" content="@JForteroche"/>
-    <meta name="twitter:image" content="public/images/jeanforteroche.jpg"/>
-    
+    <meta name="twitter:card" content="Dernier billet pour l'Alaska" />
+    <meta name="twitter:site" content="@JForteroche" />
+    <meta name="twitter:title" content="Dernier billet pour l'Alaska" />
+    <meta name="twitter:description" content="Lisez le dernier roman de Jean Forteroche : Dernier billet pour l'Alaska." />
+    <meta name="twitter:creator" content="@JForteroche" />
+    <meta name="twitter:image" content="public/images/jeanforteroche.jpg" />
+
     <!-- fin-->
 
     <meta charset="utf-8" />
@@ -40,7 +40,7 @@
     <script>
         tinymce.init({
             selector: 'textarea',
-            plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+            plugins: '',
             toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
             toolbar_mode: 'floating',
             tinycomments_mode: 'embedded',
@@ -50,6 +50,8 @@
             force_p_newlines: false,
         });
     </script>
+
+    <script type="text/javascript" src="public/js/alerts.js"></script>
 </body>
 
 </html>

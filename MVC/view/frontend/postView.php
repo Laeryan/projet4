@@ -28,7 +28,7 @@
         <textarea id="comment" name="comment" placeholder="Commentaire"></textarea>
     </div>
     <div>
-        <input class="submit" type="submit" />
+        <input id="post_comment" class="submit" type="submit" />
     </div>
 </form>
 <h2>Liste des commentaires :</h2>
@@ -39,13 +39,17 @@
     </div>
     <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) { ?>
         <form action="index.php?action=deleteComment&amp;id=<?= htmlspecialchars($comment['id']) . '&postId=' . htmlspecialchars($post['id']) ?>" method="post">
-            <input class="submit" type="submit" value="Effacer" />
+            <input id="delete_comment" class="submit" type="submit" value="Effacer" />
+        </form>
+
+        <form action="index.php?action=moderateComment&amp;id=<?= htmlspecialchars($comment['id']) . '&postId=' . htmlspecialchars($post['id']) ?>" method="post">
+            <input id="moderate_comment" class="submit" type="submit" value="Modérer" />
         </form>
     <?php } ?>
 
     <?php if ($comment['report'] == 0) : ?>
         <form action="index.php?action=reportComment&amp;id=<?= htmlspecialchars($comment['id']) . '&postId=' . htmlspecialchars($post['id']) ?>" method="post">
-            <input class="submit" type="submit" value="Signaler" />
+            <input id="report_comment" class="submit" type="submit" value="Signaler" />
         </form>
     <?php endif; ?>
 <?php

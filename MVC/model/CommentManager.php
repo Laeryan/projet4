@@ -54,4 +54,12 @@ class CommentManager extends Manager
         $reportedComment = $db->prepare('UPDATE comments SET report = 1 WHERE id = ?');
         $reportedComment->execute(array($commentId));
     } 
+
+     // fonction pour signaler un commentaire
+     public function moderateComment($commentId)
+     {
+         $db = $this->dbConnect();
+         $reportedComment = $db->prepare('UPDATE comments SET report = 2 WHERE id = ?');
+         $reportedComment->execute(array($commentId));
+     }
 }

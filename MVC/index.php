@@ -44,6 +44,8 @@ try {
             }
         } elseif ($_GET['action'] == 'deleteComment') {
             deleteComment($_GET['id'], $_GET['postId']);
+        } elseif ($_GET['action'] == 'moderateComment') {
+            moderateComment($_GET['id'], $_GET['postId']);
         } elseif ($_GET['action'] == 'reportComment') {
             reportComment($_GET['id'], $_GET['postId']);
         }
@@ -72,14 +74,18 @@ try {
             deletePost($_GET['id']);
         }
 
-        // Connexion aux sessions
+        // Administration
 
         elseif ($_GET['action'] == 'displayLogin') {
             displayLogin();
         } elseif ($_GET['action'] == 'login') {
-            login();
+            login($_POST['username'], $_POST['password']);
         } elseif ($_GET['action'] == 'disconnect') {
             disconnect();
+        } elseif ($_GET['action'] == 'updatePassword') {
+            if ($_POST['password'] == $_POST['password_confirm']) {
+                updatePassword($_POST['password']);
+            } else echo "Erreur : les mots de passe renseignés ne sont pas identiques.";
         } else {
             mainPage();
         }
@@ -88,5 +94,5 @@ try {
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
-    echo('Une erreur est survenue. Veuillez réessayer.');
+    echo ('Une erreur est survenue. Veuillez réessayer.');
 }

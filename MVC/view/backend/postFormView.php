@@ -7,7 +7,7 @@
 
 <form action="index.php?action=<?= $action ?>" method="post">
     <input type="hidden" name="id" value="<?= htmlspecialchars($postId) ?>">
-    <input type="text" name="title" placeholder="Saisissez un titre." value="<?= htmlspecialchars($postTitle) ?>" />
+    <input type="text" name="title" placeholder="Saisissez un titre." value="<?= htmlspecialchars($postTitle) ?>" required />
     <textarea name="content" placeholder="Saisissez un texte."><?= htmlspecialchars($postContent) ?></textarea>
     <input class="submit" type="submit" value="Enregistrer" />
 </form>
@@ -47,6 +47,16 @@
 
 <div id="lien_admin">
     <p><a href="index.php?action=listPosts">Retour à la liste des billets</a></p>
+
+    <fieldset>
+        <legend>Changer votre mot de passe</legend>
+        <form action="index.php?action=updatePassword" method="post">
+            <input class="set_password" type="password" name="password" placeholder="Saisissez le nouveau mot de passe" required>
+            <input class="set_password" type="password" name="password_confirm" placeholder="Confirmez le nouveau mot de passe" required>
+            <input id="submit_password_update" class="submit" type="submit" value="Enregistrer" />
+        </form>
+    </fieldset>
+
     <p><a href="index.php?action=disconnect">Se déconnecter de la page d'administration</a></p>
 </div>
 

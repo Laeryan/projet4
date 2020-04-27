@@ -5,20 +5,23 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
 // Fonction qui redirige vers la page d'accueil
-function mainPage() {
+function mainPage()
+{
     require('view/frontend/mainPageView.php');
 }
 
 // Fonction qui redirige vers la page de contact
-function contact() {
+function contact()
+{
     require('view/frontend/contact.php');
 }
 
 // Fonction qui détermine l'aspect du message envoyé via le formulaire de contact
-function mailContact($mail, $title, $message) {
+function mailContact($mail, $title, $message)
+{
     $emailFrom = "miss_ayumi@hotmail.com";
     $emailSubject = "Vous avez reçu un message sur votre blog !";
-    $emailBody = "Vous avez reçu un nouveau message,\n Sujet : $title\n" . " Email : $mail\n" . "Message : $message\n" ;
+    $emailBody = "Vous avez reçu un nouveau message,\n Sujet : $title\n" . " Email : $mail\n" . "Message : $message\n";
     $to = "miss_ayumi@hotmail.com";
     $headers = "De : $emailFrom\r\n";
 
@@ -27,7 +30,8 @@ function mailContact($mail, $title, $message) {
 }
 
 // Fonction pour récupérer les posts dans la base de données
-function listPosts() {
+function listPosts()
+{
     $postManager = new PostManager();
     $posts = $postManager->getPosts();
 
@@ -35,7 +39,8 @@ function listPosts() {
 }
 
 // Fonction qui récupère chaque post et ses commentaires
-function postView() {
+function postView()
+{
     $postManager = new PostManager();
     $commentManager = new CommentManager();
 
@@ -46,24 +51,26 @@ function postView() {
 }
 
 // Fonction qui permet d'ajouter un commentaire
-function addComment($postId, $author, $comment) {
+function addComment($postId, $author, $comment)
+{
     $commentManager = new CommentManager();
 
     $affectedLines = $commentManager->addComment($postId, $author, $comment);
-    
+
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire.');
     } else {
-        header('location:index.php?action=postView&id='. $postId);
+        header('location:index.php?action=postView&id=' . $postId);
     }
 }
 
 // Fonction qui permet d'effacer un commentaire en récupérant son ID et celui du post
-function deleteComment($commentId, $postId) {
+function deleteComment($commentId, $postId)
+{
     $commentManager = new CommentManager();
 
     $affectedComment = $commentManager->deleteComment($commentId);
-    
+
     if ($affectedComment === false) {
         throw new Exception('Impossible d\'effacer le commentaire.');
     } else {
@@ -72,7 +79,8 @@ function deleteComment($commentId, $postId) {
 }
 
 // Fonction qui permet de signaler un commentaire en récupérant son ID et celui du post
-function reportComment($commentId, $postId) {
+function reportComment($commentId, $postId)
+{
     $commentManager = new CommentManager();
 
     $reportedComment = $commentManager->reportComment($commentId);
@@ -80,7 +88,6 @@ function reportComment($commentId, $postId) {
     if ($reportedComment === false) {
         throw new Exception('Impossible de signaler le commentaire.');
     } else {
-        header('location:index.php?action=postView&id=' .$postId);
+        header('location:index.php?action=postView&id=' . $postId);
     }
 }
-

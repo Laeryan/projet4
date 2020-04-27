@@ -19,11 +19,12 @@ function createPost($title, $content)
 }
 
 // Fonction qui permet d'afficher les commentaires signalés
-function retrieveComments() {
+function retrieveComments()
+{
     $commentManager = new CommentManager();
 
     $comments = $commentManager->getAllComments();
-    
+
     return $comments;
 }
 
@@ -83,6 +84,20 @@ function deletePost($postId)
     }
 }
 
+// Fonction qui permet de modérer un commentaire signalé
+function moderateComment($commentId, $postId)
+{
+    $commentManager = new CommentManager();
+
+    $affectedComment = $commentManager->moderateComment($commentId);
+
+    if ($affectedComment === false) {
+        throw new Exception('Impossible d\'effacer le commentaire.');
+    } else {
+        header('location:index.php?action=postView&id=' . $postId);
+    }
+}
+
 // Fonction permettant l'affichage du formulaire de connexion
 function displayLogin()
 {
@@ -94,14 +109,14 @@ function displayLogin()
 }
 
 // Fonction permettant de s'identifier
-function login()
+function login($userName, $password)
 {
     $userManager = new UserManager();
 
-    $user = $userManager->getUser($_POST['username'], $_POST['password']);
+    $user = $userManager->getUser($userName);
 
-    // on vérifie si l'utilisateur est inscrit ou non pour limiter l'accès
-    if ($user === false) {
+    // on vérifie si l'utilisateur est inscrit ou non pour limiter l'accès et on compare le mot de passe encrypté
+    if ($user === false || !password_verify($password, $user['pssword'])) {
         header('location:index.php?action=displayLogin');
     } else {
         $_SESSION['username'] = $user['username'];
@@ -114,6 +129,17 @@ function login()
             header('location:index.php?action=listPosts');
         }
     }
+}
+
+// Fonction qui permet à l'administrateur de changer de mot de passe
+function updatePassword($password)
+{
+    $userManager = new UserManager();
+
+    $cryptedPassword = password_hash($password, PASSWORD_BCRYPT);
+    $updatedPassword = $userManager->updatePassword($cryptedPassword);
+
+    header('location:index.php?action=displayPostForm');
 }
 
 // Fonction permettant la deconnexion de l'utilisateur

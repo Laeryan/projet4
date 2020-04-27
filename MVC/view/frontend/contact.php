@@ -9,7 +9,7 @@
 <input type="email" name="email" placeholder="Votre e-mail">
 <input type="text" name="title" placeholder="Titre">
 <textarea name="message" placeholder="Votre message"></textarea>
-<input class= "submit" type="submit" name="submit" value="Envoyer"> 
+<input id="send_message" class= "submit" type="submit" name="submit" value="Envoyer"> 
 </form>
 
 <?php $content = ob_get_clean(); ?>
