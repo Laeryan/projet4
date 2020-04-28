@@ -60,6 +60,7 @@
     <p><a href="index.php?action=disconnect">Se déconnecter de la page d'administration</a></p>
 </div>
 
+<script src="public/js/submit_password_update.js"></script>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

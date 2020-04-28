@@ -56,6 +56,10 @@
 }
 ?>
 
+<script src="public/js/post_comment.js"></script>
+<script src="public/js/delete_comment.js"></script>
+<script src="public/js/moderate_comment.js"></script>
+<script src="public/js/report_comment.js"></script>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

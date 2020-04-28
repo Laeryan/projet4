@@ -51,7 +51,6 @@
         });
     </script>
 
-    <script type="text/javascript" src="public/js/alerts.js"></script>
 </body>
 
 </html>

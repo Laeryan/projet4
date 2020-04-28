@@ -12,5 +12,6 @@
 <input id="send_message" class= "submit" type="submit" name="submit" value="Envoyer"> 
 </form>
 
+<script src="public/js/send_message.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

@@ -10,7 +10,7 @@
     <meta property="og:type" content="Site web" />
     <meta property="og:url" content="#" />
     <meta property="og:image" content="public/images/jeanforteroche.jpg" />
-    <meta property="og:description" content="Lisez le dernier roman de Jean Forteroche : Dernier billetp our l'Alaska." />
+    <meta property="og:description" content="Lisez le dernier roman de Jean Forteroche : Dernier billet pour l'Alaska." />
 
     <meta name="twitter:card" content="Dernier billet pour l'Alaska" />
     <meta name="twitter:site" content="@JForteroche" />
@@ -45,8 +45,6 @@
             <li>Politique de confidentialité</li>
         </ul>
     </footer>
-
-    <script type="text/javascript" src="public/js/alerts.js"></script>
 </body>
 
 </html>
